@@ -24,7 +24,7 @@ Botoes.forEach((btn) =>{
             }
         }
         if(btnDireito){
-            if(contadorSlider === maxItens - 1 ){
+            if(contadorSlider === maxItens - 1){
                 contadorSlider = 0
             }else{
                 contadorSlider = contadorSlider + 1
@@ -42,7 +42,7 @@ Botoes.forEach((btn) =>{
 
 function nextImage(){
     contadorSlider++;
-    if(contadorSlider === maxItens - 1){
+    if(contadorSlider === maxItens){
         contadorSlider = 0
     }
 
