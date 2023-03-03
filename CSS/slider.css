@@ -12,7 +12,6 @@
     display: flex;
     overflow: hidden;
     position: relative;
-    margin-top: 10vh;
 }
 .slider{
     width: 100%;
