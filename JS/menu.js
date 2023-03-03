@@ -7,8 +7,7 @@ function clickMenu() {
         navbar.classList.remove('active')
         closeOrOpen.innerHTML = 'menu'
 
-    }   else {
-        console.log('oi')
+    }else{
         navbar.classList.add('active')
         closeOrOpen.innerHTML = 'close'
     }
@@ -17,7 +16,7 @@ function clickMenu() {
 function toggleMenuItens(){
     let menuItens = document.querySelector('.menu-items-list');
 
-    menuItens.classList.toggle('ativo');
+    menuItens.classList.toggle('active');
 }
 
 

@@ -9,15 +9,15 @@ let contadorSlider = 0
 console.log(Botoes)
 
 
-const intervalo = setInterval( function(){
-    nextImage();
-}, 5000)
+// const intervalo = setInterval( function(){
+//     nextImage();
+// }, 5000)
 
 Botoes.forEach((btn) =>{
     btn.addEventListener('click', () =>{
         const btnEsquerdo = btn.classList.contains('esquerdo')
         const btnDireito = btn.classList.contains('direito')
-
+        
         if(btnEsquerdo){
             if(contadorSlider === 0){
                 contadorSlider = maxItens - 1
@@ -26,6 +26,7 @@ Botoes.forEach((btn) =>{
             }else{
                 contadorSlider = contadorSlider - 1
             }
+            console.log(contadorSlider)
         }
         if(btnDireito){
             if(contadorSlider === maxItens - 1){
@@ -33,6 +34,7 @@ Botoes.forEach((btn) =>{
             }else{
                 contadorSlider = contadorSlider + 1
             }
+            console.log(contadorSlider)
         }
 
         sliderItens[contadorSlider].scrollIntoView(
