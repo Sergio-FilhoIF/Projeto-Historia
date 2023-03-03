@@ -3,11 +3,13 @@ const Botoes = document.querySelectorAll('.btn')
 
 const maxItens = sliderItens.length
 
+
 let contadorSlider = 0
 
 console.log(Botoes)
 
-setInterval( function(){
+
+const intervalo = setInterval( function(){
     nextImage();
 }, 5000)
 
@@ -19,6 +21,8 @@ Botoes.forEach((btn) =>{
         if(btnEsquerdo){
             if(contadorSlider === 0){
                 contadorSlider = maxItens - 1
+                
+                
             }else{
                 contadorSlider = contadorSlider - 1
             }
