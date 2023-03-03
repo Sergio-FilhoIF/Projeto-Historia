@@ -7,9 +7,9 @@ let contadorSlider = 0
 
 console.log(Botoes)
 
-// setInterval( function(){
-//     nextImage();
-// }, 5000)
+setInterval( function(){
+    nextImage();
+}, 5000)
 
 Botoes.forEach((btn) =>{
     btn.addEventListener('click', () =>{
