@@ -1,62 +1,67 @@
-const sliderItens = document.querySelectorAll('.box')
-const Botoes = document.querySelectorAll('.btn')
+const buttons = document.querySelectorAll('.btn')
+const boxs = document.querySelectorAll('.slide')
 
-const maxItens = sliderItens.length
+const maxLenght = boxs.length
+
+let count = 1
+document.getElementById('radio1').checked = true
+
+let interval = setInterval(() =>{
+    nextImage()
+},5000)
 
 
-let contadorSlider = 0
-
-console.log(Botoes)
-
-
-// const intervalo = setInterval( function(){
-//     nextImage();
-// }, 5000)
-
-Botoes.forEach((btn) =>{
+buttons.forEach((btn) =>{
     btn.addEventListener('click', () =>{
-        const btnEsquerdo = btn.classList.contains('esquerdo')
-        const btnDireito = btn.classList.contains('direito')
-        
-        if(btnEsquerdo){
-            if(contadorSlider === 0){
-                contadorSlider = maxItens - 1
+        const esquerdo = btn.classList.contains('esquerdo')
+        const direito = btn.classList.contains('direito')
+
+        if(esquerdo){
+            if(count <= 1){
+                count = maxLenght
+                document.getElementById('radio'+count).checked = true
+                clearInterval(interval)
+                interval = setInterval(() =>{
+                    nextImage()
+                },5000)
+            }else{
+                count = count - 1
+                document.getElementById('radio'+count).checked = true
+                clearInterval(interval)
+                interval = setInterval(() =>{
+                    nextImage()
+                },5000)
                 
                 
-            }else{
-                contadorSlider = contadorSlider - 1
             }
-            console.log(contadorSlider)
-        }
-        if(btnDireito){
-            if(contadorSlider === maxItens - 1){
-                contadorSlider = 0
-            }else{
-                contadorSlider = contadorSlider + 1
-            }
-            console.log(contadorSlider)
         }
 
-        sliderItens[contadorSlider].scrollIntoView(
-            {
-                inline:'center',
-                behavior: 'smooth'
+        if(direito){
+            if(count >= maxLenght){
+                count = 1
+                document.getElementById('radio'+count).checked = true
+                clearInterval(interval)
+                interval = setInterval(() =>{
+                    nextImage()
+                },5000)
+
+            }else{
+                count = count + 1
+                document.getElementById('radio'+count).checked = true
+                clearInterval(interval)
+                interval = setInterval(() =>{
+                    nextImage()
+                },5000)
+
             }
-        )
+        }
     })
 })
-
-function nextImage(){
-    contadorSlider++;
-    if(contadorSlider === maxItens){
-        contadorSlider = 0
+const nextImage = () =>{
+    count++
+    if(count>maxLenght){
+        count = 1
     }
 
-    sliderItens[contadorSlider].scrollIntoView(
-        {
-            inline:'center',
-            behavior: 'smooth'
-        }
-    )
+    document.getElementById('radio'+count).checked = true
 }
-
